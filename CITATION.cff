@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+title: "Admission Chance Predictor"
+message: "If you use this project in research, education, or derivative work, please cite it."
+type: software
+authors:
+  - family-names: Kumar
+    given-names: Brajesh
+    affiliation: "Independent"
+repository-code: "https://github.com/brajesh31/Admission-Prediction"
+abstract: "A Jupyter-based educational project that explores regression models for estimating graduate admission chances."
+keywords:
+  - machine learning
+  - regression
+  - admissions
+  - scikit-learn
+license: MIT
+version: 1.0.0
+date-released: 2025-01-01
