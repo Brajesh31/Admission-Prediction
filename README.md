@@ -90,4 +90,4 @@ The dataset contains applicant-related academic information. Use it only for lea
 
 This repository does not currently declare a software license. Confirm the license and redistribution terms for the dataset and add an appropriate license file before publishing derived data or model artifacts.
 
-Last updated: 2026-10-25 23:45 UTC
+Last updated: 2026-10-26 02:59 UTC
