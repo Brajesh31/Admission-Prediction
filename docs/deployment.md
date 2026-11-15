@@ -1,25 +1,35 @@
-# Deployment
+# 🚀 Deployment and Execution
 
-This repository is currently designed for local notebook execution and does not contain a production service or deployment configuration.
+## Current deployment status
+This repository is currently a local Jupyter notebook project. It does not contain a production API, web frontend, inference server, database, Docker configuration, or cloud deployment workflow. The supported execution mode is local notebook execution.
 
-## Recommended path for future deployment
+## Local run
+From the repository root:
 
-Before exposing predictions through an API or user interface:
+```bash
+python -m venv .venv
+```
 
-1. Verify the dataset license and provenance.
-2. Move preprocessing and model inference into tested Python modules.
-3. Version the trained model with its feature schema and training data reference.
-4. Add input validation, rate limiting, logging, and privacy controls.
-5. Document model limitations and prohibit autonomous admissions decisions.
-6. Evaluate accuracy, calibration, and subgroup performance on a held-out dataset.
+Activate the environment, install dependencies, and start Jupyter:
 
-## Reproducible local run
-
-The supported execution path is:
-
-```powershell
-.\.venv\Scripts\Activate.ps1
+```bash
+python -m pip install --upgrade pip
+python -m pip install jupyter pandas numpy matplotlib scikit-learn
 jupyter notebook Admission_Predict.ipynb
 ```
 
-Run from the repository root so the relative CSV path remains valid. No cloud credentials, deployment secrets, or hosted service are required by the current notebook.
+The notebook expects `admission_predict.csv` at the relative path it reads.
+
+## Before building a hosted service
+1. Verify dataset provenance and redistribution terms.
+2. Extract reusable preprocessing and prediction logic into tested Python modules.
+3. Create an explicit and validated feature schema.
+4. Build a pipeline that prevents preprocessing leakage.
+5. Evaluate against an untouched test set.
+6. Report MAE, RMSE, R², uncertainty, and appropriate subgroup analysis.
+7. Document model version and training-data provenance.
+8. Add privacy, security, access, and abuse controls.
+9. Establish monitoring and rollback procedures.
+10. Obtain domain and legal review before any high-impact use.
+
+A future UI or API must explain that outputs are experimental estimates and must not automate admission decisions.
