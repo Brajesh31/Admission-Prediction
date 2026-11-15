@@ -1,25 +1,38 @@
-# Data storage and schema
+# 🗃️ Data Storage and Dataset Schema
 
-The project does not use a database. Its source data is the local CSV file `admission_predict.csv`, loaded directly by the notebook.
+## 1. Storage status
+The project does not currently use a database. The notebook reads a local CSV file, `admission_predict.csv`. This document's filename is retained for continuity. It describes the dataset and tabular schema, not a SQL database.
 
-## Logical schema
+## 2. Logical structure
 
-The dataset represents one applicant per row. The primary feature fields are:
+| Field | Meaning | Usage |
+|---|---|---|
+| `Serial No.` | Row identifier | Not a predictive feature |
+| `GRE Score` | GRE score | Predictor |
+| `TOEFL Score` | TOEFL score | Predictor |
+| `University Rating` | University rating | Predictor |
+| `SOP` | Statement of purpose rating | Predictor |
+| `LOR ` | Letter of recommendation rating | Predictor |
+| `CGPA` | Grade-point average | Predictor |
+| `Research` | Research experience indicator | Predictor |
+| `Chance of Admit ` | Numeric target | Regression label |
 
-- GRE score
-- TOEFL score
-- university rating
-- statement-of-purpose rating
-- letter-of-recommendation rating
-- CGPA
-- research experience
+The source headers include whitespace inconsistencies. Normalize names explicitly when building a new pipeline and update the notebook and feature contract together.
 
-The target is the admission chance value used for regression.
+## 3. Loading the source
 
-## Data handling
+Run Jupyter from the repository root:
 
-Keep the CSV beside the notebook, preserve its header names, and verify row counts and data types after changes. Do not add private applicant information or commit derived data without confirming redistribution rights.
+```python
+import pandas as pd
+df = pd.read_csv("admission_predict.csv")
+```
 
-## Future storage
+## 4. Validation recommendations
+Validate required columns, normalized names, numeric types, missing values, rating ranges, research encoding, target values, duplicate rows, and duplicate identifiers. Exclude the serial identifier from the predictor matrix. Do not replace zeros with missing values without checking whether zero is valid or an encoding convention in the source.
 
-If the project grows beyond notebook experimentation, use a versioned data contract and store dataset metadata separately from model artifacts. Record the source, collection date, license, preprocessing version, and a checksum for each training dataset.
+## 5. Provenance and privacy
+The repository license does not necessarily cover the dataset. Verify its original source, provenance, and redistribution terms before reusing it elsewhere. Avoid adding private applicant records or publishing row-level personal data.
+
+## 6. Future storage
+If external storage is later required, define a versioned schema and document why a database is needed. Store dataset metadata, source references, checksums, collection dates, and preprocessing versions separately from model artifacts.
