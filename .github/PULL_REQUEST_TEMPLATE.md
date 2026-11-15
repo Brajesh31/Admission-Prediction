@@ -1,21 +1,41 @@
+# 🔀 Pull Request
+
 ## Summary
+Describe what this change does and why it is needed.
 
-<!-- Describe what changed and why. -->
+## Type of change
+- [ ] Bug fix
+- [ ] Feature or improvement
+- [ ] Model / evaluation change
+- [ ] Dataset or schema change
+- [ ] Documentation
+- [ ] Maintenance
 
-## Validation
+## Implementation details
+List the main changes and affected files or notebook sections.
 
-- [ ] Notebook was run from a clean kernel.
-- [ ] Data loading and expected columns were checked.
-- [ ] Model metrics or behavior were compared with the previous version.
-- [ ] `git diff --check` passes.
+## Validation performed
+- [ ] Restarted the notebook kernel.
+- [ ] Ran the notebook from top to bottom.
+- [ ] Checked the data-loading path.
+- [ ] Reviewed feature names and order.
+- [ ] Checked model evaluation and metrics, where relevant.
+- [ ] Reviewed notebook outputs for private information.
+- [ ] Ran `git diff --check`.
 
-## Data and privacy
+Describe any checks that could not be run:
 
-- [ ] No secrets or private applicant data are included.
-- [ ] Dataset provenance and licensing were considered.
-- [ ] Notebook outputs do not contain sensitive information or local paths.
+## Model evaluation details
+For modeling changes, provide the split strategy, cross-validation approach, model parameters, and MAE / RMSE / R² where applicable. Explain how the final test set was kept separate from model selection.
 
-## Documentation
+## Data changes
+Identify the source and license of any changed or added data. Confirm redistribution rights.
 
-- [ ] README or relevant documentation was updated.
-- [ ] Limitations and responsible-use guidance remain accurate.
+## Responsible use
+Explain any change that affects the interpretation of predictions. Do not present the model as an official or calibrated admissions decision system.
+
+## Checklist
+- [ ] Documentation updated.
+- [ ] No secrets or private applicant records included.
+- [ ] No machine-specific paths or irrelevant notebook output included.
+- [ ] Change is focused and ready for review.
