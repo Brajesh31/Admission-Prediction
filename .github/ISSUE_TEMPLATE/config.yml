@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security reporting
+    url: https://github.com/Brajesh31/Admission-Prediction/blob/main/SECURITY.md
+    about: Report security vulnerabilities privately. Do not publish sensitive data in an issue.
+  - name: Project documentation
+    url: https://github.com/Brajesh31/Admission-Prediction/tree/main/docs
+    about: Read setup, architecture, data, and troubleshooting guides before opening a question.
