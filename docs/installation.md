@@ -1,34 +1,79 @@
-# Installation
+# 🛠️ Installation Guide
 
-## Prerequisites
+## 1. Prerequisites
+Install Python 3.9 or newer, pip, Git, and a terminal. Jupyter will be installed with project dependencies. The notebook metadata currently records Python 3.11.7. The repository does not include a fully pinned dependency lockfile, so use a virtual environment and record package versions for reproducible work.
 
-- Python 3.9 or newer
-- PowerShell, Command Prompt, or a compatible shell
-- Jupyter Notebook or JupyterLab
+```bash
+python --version
+python -m pip --version
+git --version
+```
 
-## Create an environment
+## 2. Clone
+
+```bash
+git clone https://github.com/Brajesh31/Admission-Prediction.git
+cd Admission-Prediction
+```
+
+## 3. Create a virtual environment
+
+### Windows PowerShell
 
 ```powershell
 py -m venv .venv
 .\.venv\Scripts\Activate.ps1
+```
+
+If activation is restricted, use the environment's interpreter directly or a shell configured for your machine. Avoid changing system-wide execution policy unnecessarily.
+
+### macOS / Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+## 4. Install dependencies
+
+```bash
 python -m pip install --upgrade pip
 python -m pip install jupyter pandas numpy matplotlib scikit-learn
 ```
 
-On macOS or Linux, use `python3 -m venv .venv` and `source .venv/bin/activate`.
+## 5. Verify imports
 
-## Verify the installation
-
-```powershell
-python -c "import numpy, pandas, matplotlib, sklearn; print('Dependencies loaded')"
+```bash
+python -c "import numpy, pandas, matplotlib, sklearn; print('All required packages imported')"
 ```
 
-If the import check fails, verify that the virtual environment is active and install the missing package into that environment.
+Confirm the notebook kernel uses the same interpreter where packages were installed.
 
-## Open the project
+## 6. Launch the notebook
 
-Run Jupyter from the repository root so the notebook can resolve `admission_predict.csv`:
+Run from the repository root:
 
-```powershell
+```bash
 jupyter notebook Admission_Predict.ipynb
 ```
+
+Alternatively:
+
+```bash
+jupyter lab Admission_Predict.ipynb
+```
+
+## 7. Verify the data file
+Confirm both `Admission_Predict.ipynb` and `admission_predict.csv` are in the repository root. The notebook uses a relative path, so launching Jupyter elsewhere can cause a file-not-found error.
+
+## 8. Record environment versions
+
+```bash
+python --version
+python -m pip freeze > requirements-lock.txt
+```
+
+Review and test a generated lock file before committing it.
+
+## 9. Shutdown
+Save the notebook, stop the Jupyter server from the terminal, and leave the virtual environment with `deactivate`.
