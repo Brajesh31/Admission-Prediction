@@ -1,29 +1,62 @@
-# Troubleshooting
+# 🧯 Troubleshooting Guide
 
-## `FileNotFoundError` for the CSV
+## 1. CSV file not found
+**Symptom:** `FileNotFoundError: admission_predict.csv`
 
-Start Jupyter from the repository root and confirm that `admission_predict.csv` is beside `Admission_Predict.ipynb`. The notebook uses a relative path.
+Jupyter was likely launched from a directory that does not contain the CSV. Open a terminal in the repository root, verify the CSV is present, and launch:
 
-## Import errors
+```bash
+jupyter notebook Admission_Predict.ipynb
+```
 
-Activate the virtual environment and install the documented dependencies:
+## 2. Missing Python packages
+**Symptom:** `ModuleNotFoundError`
 
-```powershell
+Activate the virtual environment and install:
+
+```bash
 python -m pip install jupyter pandas numpy matplotlib scikit-learn
 ```
 
-## Notebook cells behave inconsistently
+Check that the notebook kernel is using the same interpreter.
 
-Restart the kernel and run all cells from top to bottom. Notebook state can hide missing imports or stale variables.
+## 3. Notebook cells fail after editing
+Variables remain in kernel memory. Running cells out of order can leave stale or missing values. Restart the kernel and run all cells from top to bottom.
 
-## Different model scores
+## 4. Different evaluation scores
+Possible causes include Python or library versions, changed dataset content, row ordering, missing-value treatment, random seed, split strategy, estimator parameters, or execution order. Record settings and compare equivalent protocols.
 
-Check Python and package versions, the random seed, the train/test split, and any changes to data cleaning. Small environment or preprocessing differences can change results.
+## 5. Feature-name warning
+The stored notebook output includes a warning when a model fitted with named DataFrame columns receives a plain list for prediction. Use a DataFrame with matching names and order:
 
-## Warnings about feature names
+```python
+sample = pd.DataFrame(
+    [[337, 118, 4, 4.5, 4.5, 9.65, 1]],
+    columns=[
+        "GRE", "TOEFL", "University Rating",
+        "SOP", "LOR", "CGPA", "Research"
+    ],
+)
+prediction = model.predict(sample)
+```
 
-Pass a DataFrame with the same column names used during training, or verify that a positional list follows the documented feature order. Do not ignore a warning until its cause is understood.
+## 6. Unexpected prediction values
+Regression can extrapolate beyond the target range. Check input units, feature order, data preparation, and model assumptions. Do not silently clip outputs and describe them as calibrated probabilities.
 
-## Unexpected prediction values
+## 7. Grid search is slow
+GridSearchCV fits multiple configurations across multiple folds. Reduce the search grid for quick iteration, but do not report a reduced search as the full evaluation.
 
-Confirm that inputs use the dataset's units and ranges. A regression estimate outside an expected probability range should be investigated rather than silently clipped.
+## 8. Data cleaning changes row counts
+Inspect missing values, duplicates, zero handling, and filters. Keep a record of removed or changed rows. A zero may be valid, so do not automatically convert it to missing data without confirming its meaning.
+
+## 9. Matplotlib plots do not display
+Use a Jupyter kernel and enable inline plotting:
+
+```python
+%matplotlib inline
+```
+
+Rerun the plotting cell after confirming the kernel is active.
+
+## 10. When opening an issue
+Include the error message, Python version, package versions, failing cell, and reproduction steps. Remove personal information and private data rows from logs and screenshots.
