@@ -1,0 +1,65 @@
+name: "🐛 Bug report"
+description: Report a reproducible problem in the notebook or project documentation.
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include private applicant records, credentials, or sensitive personal information.
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem summary
+      description: Explain what failed.
+      placeholder: A clear description of the issue.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the exact steps or notebook cells.
+      placeholder: |
+        1. Install dependencies...
+        2. Open...
+        3. Run...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python version
+      placeholder: "3.11.7"
+  - type: textarea
+    id: packages
+    attributes:
+      label: Relevant package versions
+      description: Include relevant versions of pandas, NumPy, matplotlib, and scikit-learn.
+  - type: textarea
+    id: traceback
+    attributes:
+      label: Error output
+      description: Remove secrets, local usernames, and private data before posting.
+      render: text
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission checks
+      options:
+        - label: I restarted the kernel and reproduced the issue.
+          required: true
+        - label: I removed private data and credentials.
+          required: true
