@@ -1,23 +1,37 @@
-# Support
+# 🆘 Support
 
-## Questions and documentation
+Thank you for using Admission Chance Predictor.
 
-Read the [README](README.md) first for setup, notebook execution, feature order, and responsible-use guidance. The [CONTRIBUTING.md](CONTRIBUTING.md) file explains development and pull request expectations.
+## 📖 Start here
 
-## Getting help
+- Read the main [README](README.md) for project scope and setup.
+- Follow [installation](docs/installation.md) to configure Python and Jupyter.
+- Review [troubleshooting](docs/troubleshooting.md) for common notebook errors.
+- Read [FAQ](docs/faq.md) for feature and output interpretation.
+- Review [architecture](docs/architecture.md) to understand the notebook workflow.
 
-For reproducible bugs or documentation problems, open an issue in the repository with:
+## 🐛 Reporting a reproducible problem
 
-- operating system and Python version;
-- the environment setup command used;
-- the notebook cell or command that fails;
-- the complete error message;
-- a minimal reproduction without private data.
+Use the GitHub issue tracker for bugs, documentation corrections, and improvement requests.
 
-For improvement ideas, describe the proposed behavior, why it is useful, and how it can be evaluated.
+Include:
+- A clear title.
+- Expected behavior and actual behavior.
+- Steps to reproduce.
+- Operating system and Python version.
+- Relevant package versions.
+- The failing notebook cell or error traceback, after removing private data.
 
-## Data and security
+Do not include real applicant records, passwords, access tokens, or other confidential data in a public issue.
 
-Do not upload private applicant information, credentials, or undisclosed personal data to issues. Report security vulnerabilities privately according to [SECURITY.md](SECURITY.md).
+## 🔐 Security matters
 
-This project is maintained as an educational machine-learning example. Support does not imply that predictions are suitable for real admissions decisions.
+Do not report exploitable vulnerabilities in a public issue. Follow [SECURITY.md](SECURITY.md) and contact the repository owner privately through GitHub's available security or contact controls.
+
+## ⚠️ Project limitations
+
+This is an educational notebook, not an official admissions system. Its regression estimate is not a guaranteed outcome or a calibrated personal probability. Support cannot provide university admission decisions or validate an applicant's chance of acceptance.
+
+## 💡 Feature requests
+
+Describe the problem the proposed feature solves, its expected behavior, and how it could be validated. For modeling changes, include the intended evaluation protocol and explain how data leakage will be avoided.
