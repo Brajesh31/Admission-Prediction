@@ -1,24 +1,39 @@
-# Security Policy
+# 🔐 Security Policy
 
 ## Scope
 
-This project is an educational notebook and dataset repository. Security concerns include exposed credentials, malicious notebook content, unsafe dependencies, accidental disclosure of applicant information, and unauthorized changes to project infrastructure.
+Admission-Prediction is a local notebook and dataset repository. Security concerns include malicious notebook cells, exposed credentials, unsafe dependencies, accidental disclosure of applicant information, and unauthorized repository changes.
+
+## Supported project
+
+Security reports should identify the affected branch, commit, notebook cell, dependency, or data artifact where possible. The project does not currently operate a hosted API or production inference service.
 
 ## Reporting a vulnerability
 
-Please do not disclose exploitable issues in a public issue. Contact the repository maintainers privately through the repository owner or security contact configured in the hosting platform. Include:
+Please do not disclose exploitable issues in a public issue. Contact the repository owner privately through the contact or security-reporting controls available on GitHub.
 
-- a concise description and affected file or commit;
-- reproduction steps or a minimal proof of concept;
-- the potential impact;
-- any suggested mitigation.
+Include:
+- A concise description of the issue.
+- Affected file, cell, dependency, or commit.
+- Reproduction steps or a minimal proof of concept.
+- Potential impact.
+- Suggested mitigation, where known.
 
-Do not include real personal data in a report.
+Do not include real applicant records, personal data, access tokens, or passwords in a report.
 
-## Response
+## Response process
 
-Maintainers will acknowledge a report when practicable, investigate privately, and coordinate a fix or mitigation. Once a fix is available, the project may publish a sanitized advisory and credit the reporter if permission is granted.
+Maintainers will review reports in good faith, investigate privately where practicable, and coordinate a fix or mitigation. A public advisory may be prepared after a remedy is available. Reporter credit will be included only with permission.
 
-## Data and notebook safety
+## Notebook and dataset safety
 
-Never commit secrets, private applicant records, access tokens, or untrusted notebook outputs. Review notebook cells and outputs before opening a pull request, and inspect dependencies before executing code from an untrusted branch.
+- Review notebook cells before executing notebooks from untrusted contributors.
+- Do not commit secrets, private applicant information, or local credentials.
+- Inspect notebook outputs before publishing changes.
+- Keep dependencies updated and investigate security advisories.
+- Confirm dataset provenance and redistribution permissions.
+- Do not upload sensitive or identifiable data to public issue threads.
+
+## Scope limitations
+
+The repository does not currently have a production service, authentication layer, or cloud deployment. Do not interpret this policy as evidence that such systems exist.
