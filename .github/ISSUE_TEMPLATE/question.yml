@@ -1,0 +1,39 @@
+name: "❓ Question"
+description: Ask a project setup, notebook, dataset, or model interpretation question.
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Explain what you are trying to understand.
+    validations:
+      required: true
+  - type: dropdown
+    id: topic
+    attributes:
+      label: Topic
+      options:
+        - Installation
+        - Notebook execution
+        - Dataset
+        - Data preparation
+        - Model training
+        - Evaluation metrics
+        - Prediction interpretation
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: What have you tried?
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I have not included private applicant records or credentials.
+          required: true
