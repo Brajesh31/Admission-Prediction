@@ -1,0 +1,37 @@
+name: "✨ Feature request"
+description: Suggest a focused improvement to reproducibility, evaluation, documentation, or usability.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What limitation are you facing?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Describe the intended behavior and scope.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation plan
+      description: For model changes, describe the split strategy, leakage prevention, and metrics.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission checks
+      options:
+        - label: This request does not expose private applicant information.
+          required: true
+        - label: I have checked for an existing issue covering this idea.
+          required: true
